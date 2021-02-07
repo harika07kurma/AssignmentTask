@@ -16,7 +16,7 @@ export class GitReposListComponent implements OnInit {
   constructor(
     public gitRepoListService: GitRepoListService
   ) {
-    this.onScroll = debounce(this.onScroll, 100)
+    this.onScroll = debounce(this.onScroll, 100);
   }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class GitReposListComponent implements OnInit {
     const key = 'items';
     this.gitRepoListService.search(pageNumber).subscribe((res) => {
       if (pageNumber === 1) {
-        this.data$ = res[key]
+        this.data$ = res[key];
       } else {
         this.data$ = [...this.data$, ...res[key]];
       }
