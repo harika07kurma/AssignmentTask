@@ -26,7 +26,7 @@ export class GitReposListComponent implements OnInit {
       if(pageNumber === 1) {
         this.data$ = res[key]
       } else {
-        this.data$.concat(res[key]);
+        this.data$ = [...this.data$, ...res[key]];
       }
       this.items += this.data$.length;
     });
