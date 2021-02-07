@@ -2,7 +2,6 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { GitRepoListService } from '../../../_services/git-repo-list.service';
 import { Users } from '../../../_entities/gitRepo';
 
-
 @Component({
   selector: 'app-git-repos-list',
   templateUrl: './git-repos-list.component.html',
@@ -10,7 +9,6 @@ import { Users } from '../../../_entities/gitRepo';
 })
 export class GitReposListComponent implements OnInit {
 
- 
   data$: Users[] = [];
   page = 1;
   items = 0;
@@ -21,7 +19,6 @@ export class GitReposListComponent implements OnInit {
   ngOnInit(): void {
     this.search();
   }
-
 
   search(pageNumber: number = 1): void {
     const key = 'items';
@@ -41,6 +38,5 @@ export class GitReposListComponent implements OnInit {
       this.search(this.page);
     }
   }
- 
 
 }
