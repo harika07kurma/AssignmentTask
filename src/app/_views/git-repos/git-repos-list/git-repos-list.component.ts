@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { GitRepoListService } from '../../../_services/git-repo-list.service';
 import { Users } from '../../../_entities/gitRepo';
+import { debounce } from 'lodash';
 
 @Component({
   selector: 'app-git-repos-list',
@@ -14,7 +15,9 @@ export class GitReposListComponent implements OnInit {
   items = 0;
   constructor(
     public gitRepoListService: GitRepoListService
-  ) { }
+  ) {
+    this.onScroll = debounce(this.onScroll, 100)
+  }
 
   ngOnInit(): void {
     this.search();
@@ -23,12 +26,12 @@ export class GitReposListComponent implements OnInit {
   search(pageNumber: number = 1): void {
     const key = 'items';
     this.gitRepoListService.search(pageNumber).subscribe((res) => {
-      if(pageNumber === 1) {
+      if (pageNumber === 1) {
         this.data$ = res[key]
       } else {
         this.data$ = [...this.data$, ...res[key]];
       }
-      this.items += this.data$.length;
+      this.items = this.data$.length;
     });
   }
 
