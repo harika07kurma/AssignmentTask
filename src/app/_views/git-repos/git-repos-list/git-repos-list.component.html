@@ -8,12 +8,12 @@
       <h3>{{item.name}}</h3>
       <span>{{item.description}}</span>
       <div class="row" id="userRatings">
-        <button type="button" class="btn btn-primary" id="starsCount">Stars: 
-        150k
-        </button>
-        <button type="button" class="btn btn-primary" id="starsCount">Issues: 10k</button>
-        <span id="userName">Submitted 18 days ago by
-         useer</span>
+        <button type="button" class="btn btn-primary" id="starsCount">Stars: {{item.stargazers_count |
+          starsCount}}</button>
+        <button type="button" class="btn btn-primary" id="starsCount">Issues: {{item.open_issues_count |
+          starsCount}}</button>
+        <span id="userName">Submitted {{ item.created_at | dateDiff }} days ago by
+          {{item.owner.login}}</span>
       </div>
     </div>
   </div>
