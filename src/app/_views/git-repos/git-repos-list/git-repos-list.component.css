@@ -1,0 +1,28 @@
+#mainDiv{
+    border: 5px solid green;
+    padding: 5px;
+    margin: 20px;
+}
+
+#avatar{
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover
+}
+
+#userDetails{
+    background-color:#bbb;
+    padding-top: 5px;
+}
+
+#userRatings{
+    padding-left: 2px;
+}
+
+#starsCount{
+    margin:5px 
+}
+
+#userName{
+    margin-top: 10px;
+}
